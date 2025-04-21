@@ -79,3 +79,4 @@
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/obj/Debug/net9.0/BookCollabSaaS.Presentation.pdb
 /Users/diogoribeiro/code/BookCollabSaas/BookCollabSaaS.Presentation/obj/Debug/net9.0/BookCollabSaaS.Presentation.genruntimeconfig.cache
 /Users/diogoribeiro/code/BookCollabSaas/BookCollabSaaS.Presentation/obj/Debug/net9.0/ref/BookCollabSaaS.Presentation.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/obj/Debug/net9.0/BookCollabSaaS.Presentation.sourcelink.json

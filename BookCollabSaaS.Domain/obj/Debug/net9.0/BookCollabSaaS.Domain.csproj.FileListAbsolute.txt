@@ -9,3 +9,4 @@
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/refint/BookCollabSaaS.Domain.dll
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.pdb
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/ref/BookCollabSaaS.Domain.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.sourcelink.json

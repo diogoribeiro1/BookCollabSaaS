@@ -1,16 +1,37 @@
-using Microsoft.AspNetCore.Http;
+using BookCollabSaaS.Application.DTOs.User;
+using BookCollabSaaS.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookCollabSaaS.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    [Authorize]
+    public class UserController(IUserHandler userHandler) : ControllerBase
     {
-        [HttpGet]
-        public String GetAll()
+
+        private readonly IUserHandler _userHandler = userHandler;
+
+        [HttpPost]
+        public async Task<IActionResult> CreateOrUpdateAsync([FromBody] CreateUserRequest request)
         {
-            return "Oi";
+            var result = await _userHandler.CreateOrUpdateAsync(request);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            var result = await _userHandler.GetAllAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(Guid id)
+        {
+            var result = await _userHandler.GetByIdAsync(id);
+            return Ok(result);
         }
     }
 }

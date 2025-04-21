@@ -25,9 +25,9 @@ public class UserRepository : IUserRepository
         return await _context.Users.FindAsync(id);
     }
 
-    public async Task AddAsync(UserEntity product)
+    public async Task AddAsync(UserEntity user)
     {
-        await _context.Users.AddAsync(product);
+        await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
     }
 }

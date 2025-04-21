@@ -13,3 +13,4 @@
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Application/obj/Debug/net9.0/refint/BookCollabSaaS.Application.dll
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Application/obj/Debug/net9.0/BookCollabSaaS.Application.pdb
 /Users/diogoribeiro/code/BookCollabSaas/BookCollabSaaS.Application/obj/Debug/net9.0/ref/BookCollabSaaS.Application.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Application/obj/Debug/net9.0/BookCollabSaaS.Application.sourcelink.json
