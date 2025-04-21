@@ -26,6 +26,19 @@ builder.Services.AddControllers();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
 
+//CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") 
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
+
 // JWT authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -75,6 +88,7 @@ if (app.Environment.IsDevelopment())
 // Middleware
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseCors("AllowAll");
 app.UseWebSockets();
 app.UseAuthentication();
 app.UseAuthorization();

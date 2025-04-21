@@ -13,6 +13,8 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICacheService, RedisCacheService>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserHandler, UserHandler>();
+        services.AddSingleton<StripeService>();
+
 
         return services;
     }

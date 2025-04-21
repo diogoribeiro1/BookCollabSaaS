@@ -88,3 +88,7 @@
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Stripe.net.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll

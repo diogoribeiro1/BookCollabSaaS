@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookCollabSaaS.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+943574df0594a077f62954738c6f8f815136a4cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9275a9e20c45503f98e33378e39cd8bc20c9a085")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookCollabSaaS.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookCollabSaaS.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
