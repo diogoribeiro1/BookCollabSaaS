@@ -30,4 +30,12 @@ public class UserRepository : IUserRepository
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<UserEntity?> GetByEmailAsync(string email)
+    {
+        return await _context.Users
+            .Include(u => u.Roles)
+            .FirstOrDefaultAsync(u => u.Email == email);
+    }
+
 }

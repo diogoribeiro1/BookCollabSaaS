@@ -7,10 +7,9 @@ namespace BookCollabSaaS.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UserController(IUserHandler userHandler) : ControllerBase
     {
-
         private readonly IUserHandler _userHandler = userHandler;
 
         [HttpPost]
@@ -32,6 +31,16 @@ namespace BookCollabSaaS.Presentation.Controllers
         {
             var result = await _userHandler.GetByIdAsync(id);
             return Ok(result);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("generate-token")]
+        public async Task<IActionResult> GenerateTokenAsync([FromBody] LoginRequest request)
+        {
+
+            var result = await _userHandler.GenerateTokenAsync(request);
+
+            return Ok(new { Token = result });
         }
     }
 }

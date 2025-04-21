@@ -8,4 +8,5 @@ public interface IUserHandler
     Task<UserResponse> CreateOrUpdateAsync(CreateUserRequest request);
     Task<IEnumerable<UserResponse>> GetAllAsync();
     Task<UserResponse> GetByIdAsync(Guid id);
+    Task<string> GenerateTokenAsync(LoginRequest request); 
 }

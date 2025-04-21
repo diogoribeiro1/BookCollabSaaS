@@ -80,3 +80,11 @@
 /Users/diogoribeiro/code/BookCollabSaas/BookCollabSaaS.Presentation/obj/Debug/net9.0/BookCollabSaaS.Presentation.genruntimeconfig.cache
 /Users/diogoribeiro/code/BookCollabSaas/BookCollabSaaS.Presentation/obj/Debug/net9.0/ref/BookCollabSaaS.Presentation.dll
 /Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/obj/Debug/net9.0/BookCollabSaaS.Presentation.sourcelink.json
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Presentation/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll

@@ -2,9 +2,8 @@ using System;
 
 namespace BookCollabSaaS.Application.DTOs.User;
 
-public class UserResponse
+public class LoginRequest
 {
-    public Guid Id { get; set; }
-    public string Name { get; set; }
     public string Email { get; set; }
+    public string Password { get; set; }
 }

@@ -3,49 +3,76 @@ using BookCollabSaaS.Application.DTOs.User;
 using BookCollabSaaS.Application.Interfaces;
 using BookCollabSaaS.Domain.User;
 
-namespace BookCollabSaaS.Application.Handlers;
-
-public class UserHandler(IUserRepository userRepository) : IUserHandler
+namespace BookCollabSaaS.Application.Handlers
 {
-    private readonly IUserRepository _userRepository = userRepository;
-
-    public async Task<UserResponse> CreateOrUpdateAsync(CreateUserRequest request)
+    public class UserHandler(IUserRepository userRepository, ITokenService tokenService) : IUserHandler
     {
-        var user = new UserEntity(request.Name);
+        private readonly IUserRepository _userRepository = userRepository;
+        private readonly ITokenService _tokenService = tokenService;
 
-        await _userRepository.AddAsync(user);
-
-        return new UserResponse
+        public async Task<UserResponse> CreateOrUpdateAsync(CreateUserRequest request)
         {
-            Id = user.Id,
-            Name = user.Name
-        };
-    }
+            if (string.IsNullOrWhiteSpace(request.Name)) throw new ArgumentNullException(nameof(request.Name));
+            if (string.IsNullOrWhiteSpace(request.Email)) throw new ArgumentNullException(nameof(request.Email));
+            if (string.IsNullOrWhiteSpace(request.Password)) throw new ArgumentNullException(nameof(request.Password));
 
-    public async Task<IEnumerable<UserResponse>> GetAllAsync()
-    {
-        var users = await _userRepository.GetAllAsync();
+            var user = new UserEntity(
+                name: request.Name,
+                email: request.Email,
+                password: request.Password
+            );
 
-        return users.Select(user => new UserResponse
-        {
-            Id = user.Id,
-            Name = user.Name
-        });
-    }
+            await _userRepository.AddAsync(user);
 
-    public async Task<UserResponse> GetByIdAsync(Guid id)
-    {
-        var user = await _userRepository.GetByIdAsync(id);
-
-        if (user == null)
-        {
-            throw new Exception("User not found");
+            return new UserResponse
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
+            };
         }
 
-        return new UserResponse
+        public async Task<string> GenerateTokenAsync(LoginRequest request)
         {
-            Id = user.Id,
-            Name = user.Name
-        };
+            var user = await _userRepository.GetByEmailAsync(request.Email);
+
+            if (user == null || !user.VerifyPassword(request.Password))
+            {
+                throw new UnauthorizedAccessException("Invalid email or password.");
+            }
+
+            var role = user.Roles.FirstOrDefault()?.Name ?? "User";
+
+            return _tokenService.GenerateToken(user.Id.ToString(), role);
+        }
+
+        public async Task<IEnumerable<UserResponse>> GetAllAsync()
+        {
+            var users = await _userRepository.GetAllAsync();
+
+            return users.Select(user => new UserResponse
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
+            });
+        }
+
+        public async Task<UserResponse> GetByIdAsync(Guid id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
+
+            return new UserResponse
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
+            };
+        }
     }
 }
