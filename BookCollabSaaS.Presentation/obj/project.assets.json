@@ -779,6 +779,16 @@
           "bin/placeholder/BookCollabSaaS.Application.dll": {}
         }
       },
+      "BookCollabSaaS.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/BookCollabSaaS.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookCollabSaaS.Common.dll": {}
+        }
+      },
       "BookCollabSaaS.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -1902,6 +1912,11 @@
       "path": "../BookCollabSaaS.Application/BookCollabSaaS.Application.csproj",
       "msbuildProject": "../BookCollabSaaS.Application/BookCollabSaaS.Application.csproj"
     },
+    "BookCollabSaaS.Common/1.0.0": {
+      "type": "project",
+      "path": "../BookCollabSaaS.Common/BookCollabSaaS.Common.csproj",
+      "msbuildProject": "../BookCollabSaaS.Common/BookCollabSaaS.Common.csproj"
+    },
     "BookCollabSaaS.Domain/1.0.0": {
       "type": "project",
       "path": "../BookCollabSaaS.Domain/BookCollabSaaS.Domain.csproj",
@@ -1916,6 +1931,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "BookCollabSaaS.Application >= 1.0.0",
+      "BookCollabSaaS.Common >= 1.0.0",
       "BookCollabSaaS.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.4",
       "Microsoft.AspNetCore.OpenApi >= 9.0.3",
@@ -1949,6 +1965,9 @@
           "projectReferences": {
             "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Application/BookCollabSaaS.Application.csproj": {
               "projectPath": "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Application/BookCollabSaaS.Application.csproj"
+            },
+            "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Common/BookCollabSaaS.Common.csproj": {
+              "projectPath": "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Common/BookCollabSaaS.Common.csproj"
             },
             "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Infrastructure/BookCollabSaaS.Infrastructure.csproj": {
               "projectPath": "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Infrastructure/BookCollabSaaS.Infrastructure.csproj"

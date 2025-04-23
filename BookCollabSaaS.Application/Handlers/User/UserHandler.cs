@@ -2,25 +2,30 @@ using System;
 using BookCollabSaaS.Application.DTOs.User;
 using BookCollabSaaS.Application.Interfaces;
 using BookCollabSaaS.Domain.User;
+using BookCollabSaaS.Infrastructure.Data.Repositories.Interfaces;
 
 namespace BookCollabSaaS.Application.Handlers
 {
-    public class UserHandler(IUserRepository userRepository, ITokenService tokenService) : IUserHandler
+    public class UserHandler(IUserRepository userRepository, ITokenService tokenService, IRoleRepository roleRepository) : IUserHandler
     {
         private readonly IUserRepository _userRepository = userRepository;
+        private readonly IRoleRepository _roleRepository = roleRepository;
         private readonly ITokenService _tokenService = tokenService;
 
         public async Task<UserResponse> CreateOrUpdateAsync(CreateUserRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.Name)) throw new ArgumentNullException(nameof(request.Name));
             if (string.IsNullOrWhiteSpace(request.Email)) throw new ArgumentNullException(nameof(request.Email));
-            if (string.IsNullOrWhiteSpace(request.Password)) throw new ArgumentNullException(nameof(request.Password));
 
             var user = new UserEntity(
                 name: request.Name,
                 email: request.Email,
                 password: request.Password
             );
+
+            var role = await _roleRepository.GetByNameAsync("Admin");
+
+            user.AddRole(role);
 
             await _userRepository.AddAsync(user);
 
@@ -54,7 +59,9 @@ namespace BookCollabSaaS.Application.Handlers
             {
                 Id = user.Id,
                 Name = user.Name,
-                Email = user.Email
+                Email = user.Email,
+                Roles = user.Roles.Select(r => r.Name).ToList()
+
             });
         }
 

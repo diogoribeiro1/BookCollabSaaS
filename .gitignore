@@ -1,0 +1,79 @@
+## Build results
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.sw?
+
+## Rider
+.idea/
+
+## Visual Studio
+.vscode/
+.vs/
+
+## MacOS
+.DS_Store
+
+## Logs
+*.log
+
+## Test Results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Entity Framework Migrations
+Migrations/
+
+## ASP.NET Core
+wwwroot/
+appsettings.*.json
+appsettings.Local.json
+secrets.json
+
+## dotCover
+*.dotCover
+
+## Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## Backup & temp files
+*.bak
+*.tmp
+*.temp
+*.~*
+
+## Other files to consider ignoring
+node_modules/
+bower_components/
+dist/
+libman.json
+
+## Global JetBrains IDE directories
+.idea/
+
+# dotenv
+.env
+.env.*
+
+# Local tooling
+*.db
+*.sqlite

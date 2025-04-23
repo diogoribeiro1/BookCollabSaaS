@@ -22,9 +22,11 @@ public class PaymentController : ControllerBase
         var session = _stripeService.CreateCheckoutSession(
             priceId: request.PriceId,
             successUrl: request.SuccessUrl,
-            cancelUrl: request.CancelUrl
+            cancelUrl: request.CancelUrl,
+            userId: request.UserId
         );
 
         return Ok(new { sessionId = session.Id });
     }
+
 }

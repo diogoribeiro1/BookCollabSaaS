@@ -1,6 +1,7 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
+using BookCollabSaaS.Domain.Subscription;
 
 namespace BookCollabSaaS.Domain.User;
 
@@ -9,8 +10,10 @@ public class UserEntity
     public Guid Id { get; private set; }
     public string Name { get; private set; }
     public string Email { get; private set; }
-    public string PasswordHash { get; private set; }
-    public string PasswordSalt { get; private set; }
+    public string? PasswordHash { get; private set; }
+    public string? PasswordSalt { get; private set; }
+    public SubscriptionEntity? Subscription { get; private set; }
+
     public List<RoleEntity> Roles { get; private set; } = new();
 
     private UserEntity() { }
@@ -21,7 +24,10 @@ public class UserEntity
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Email = email ?? throw new ArgumentNullException(nameof(email));
 
-        SetPassword(password);
+        if (!string.IsNullOrWhiteSpace(password))
+        {
+            SetPassword(password);
+        }
     }
 
     public void UpdateName(string newName)
@@ -64,4 +70,10 @@ public class UserEntity
         if (role == null) throw new ArgumentNullException(nameof(role));
         Roles.Add(role);
     }
+
+    public void SetSubscription(SubscriptionEntity subscription)
+    {
+        Subscription = subscription ?? throw new ArgumentNullException(nameof(subscription));
+    }
+
 }

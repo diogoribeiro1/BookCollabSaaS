@@ -1,6 +1,9 @@
 using System;
 using BookCollabSaaS.Application.Handlers;
+using BookCollabSaaS.Application.Handlers.Subscription;
 using BookCollabSaaS.Application.Interfaces;
+using BookCollabSaaS.Infrastructure.Data.Repositories;
+using BookCollabSaaS.Infrastructure.Data.Repositories.Interfaces;
 using BookCollabSaaS.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,9 +15,11 @@ public static class ApplicationServiceRegistration
     {
         services.AddScoped<ICacheService, RedisCacheService>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
         services.AddScoped<IUserHandler, UserHandler>();
+        services.AddScoped<ISubscriptionHandler, SubscriptionHandler>();
         services.AddSingleton<StripeService>();
-
 
         return services;
     }

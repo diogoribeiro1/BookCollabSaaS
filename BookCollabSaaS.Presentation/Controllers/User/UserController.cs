@@ -12,6 +12,7 @@ namespace BookCollabSaaS.Presentation.Controllers
     {
         private readonly IUserHandler _userHandler = userHandler;
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> CreateOrUpdateAsync([FromBody] CreateUserRequest request)
         {

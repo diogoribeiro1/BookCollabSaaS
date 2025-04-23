@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../BookCollabSaaS.Application/BookCollabSaaS.Application.csproj" />
+    <ProjectReference Include="../BookCollabSaaS.Common/BookCollabSaaS.Common.csproj" />
     <ProjectReference Include="../BookCollabSaaS.Infrastructure/BookCollabSaaS.Infrastructure.csproj" />
   </ItemGroup>
 

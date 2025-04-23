@@ -9,6 +9,7 @@
       "BookCollabSaaS.Presentation/1.0.0": {
         "dependencies": {
           "BookCollabSaaS.Application": "1.0.0",
+          "BookCollabSaaS.Common": "1.0.0",
           "BookCollabSaaS.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.4",
           "Microsoft.AspNetCore.OpenApi": "9.0.3",
@@ -539,6 +540,14 @@
           }
         }
       },
+      "BookCollabSaaS.Common/1.0.0": {
+        "runtime": {
+          "BookCollabSaaS.Common.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "BookCollabSaaS.Domain/1.0.0": {
         "runtime": {
           "BookCollabSaaS.Domain.dll": {
@@ -860,6 +869,11 @@
       "hashPath": "system.text.json.9.0.4.nupkg.sha512"
     },
     "BookCollabSaaS.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookCollabSaaS.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

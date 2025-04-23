@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookCollabSaaS.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9275a9e20c45503f98e33378e39cd8bc20c9a085")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dca9078ce17303a028346b6c4851b175cc17b94")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookCollabSaaS.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookCollabSaaS.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
