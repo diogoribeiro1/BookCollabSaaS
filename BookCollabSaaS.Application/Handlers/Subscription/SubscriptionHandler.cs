@@ -1,4 +1,5 @@
 using System;
+using BookCollabSaaS.Application.DTOs.Subscription;
 using BookCollabSaaS.Application.Interfaces;
 using BookCollabSaaS.Domain.Subscription;
 
@@ -34,5 +35,20 @@ public class SubscriptionHandler : ISubscriptionHandler
             subscription.Cancel(DateTime.UtcNow);
             await _subscriptionRepository.UpdateAsync(subscription);
         }
+    }
+
+    public async Task<IEnumerable<SubscriptionResponse>> GetAllAsync()
+    {
+        var subscriptions = await _subscriptionRepository.GetAllAsync();
+        return subscriptions.Select(subscription => new SubscriptionResponse
+        {
+            Id = subscription.Id,
+            UserId = subscription.UserId,
+            StripeSubscriptionId = subscription.StripeSubscriptionId,
+            StripeCustomerId = subscription.StripeCustomerId,
+            StartDate = subscription.StartDate,
+            EndDate = subscription.EndDate,
+            IsActive = subscription.IsActive
+        });
     }
 }

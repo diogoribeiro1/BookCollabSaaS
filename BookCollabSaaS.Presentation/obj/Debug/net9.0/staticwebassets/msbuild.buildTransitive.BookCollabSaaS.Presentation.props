@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/BookCollabSaaS.Presentation.props" />
-</Project>

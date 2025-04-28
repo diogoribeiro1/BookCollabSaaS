@@ -2,6 +2,16 @@
   "version": 3,
   "targets": {
     "net9.0": {
+      "BookCollabSaaS.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/BookCollabSaaS.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookCollabSaaS.Common.dll": {}
+        }
+      },
       "BookCollabSaaS.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -15,6 +25,11 @@
     }
   },
   "libraries": {
+    "BookCollabSaaS.Common/1.0.0": {
+      "type": "project",
+      "path": "../BookCollabSaaS.Common/BookCollabSaaS.Common.csproj",
+      "msbuildProject": "../BookCollabSaaS.Common/BookCollabSaaS.Common.csproj"
+    },
     "BookCollabSaaS.Domain/1.0.0": {
       "type": "project",
       "path": "../BookCollabSaaS.Domain/BookCollabSaaS.Domain.csproj",
@@ -23,6 +38,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "BookCollabSaaS.Common >= 1.0.0",
       "BookCollabSaaS.Domain >= 1.0.0"
     ]
   },
@@ -51,6 +67,9 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
+            "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Common/BookCollabSaaS.Common.csproj": {
+              "projectPath": "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Common/BookCollabSaaS.Common.csproj"
+            },
             "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/BookCollabSaaS.Domain.csproj": {
               "projectPath": "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/BookCollabSaaS.Domain.csproj"
             }

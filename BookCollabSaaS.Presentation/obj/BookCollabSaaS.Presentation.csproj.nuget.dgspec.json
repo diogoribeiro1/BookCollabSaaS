@@ -26,6 +26,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Common/BookCollabSaaS.Common.csproj": {
+                "projectPath": "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Common/BookCollabSaaS.Common.csproj"
+              },
               "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/BookCollabSaaS.Domain.csproj": {
                 "projectPath": "/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/BookCollabSaaS.Domain.csproj"
               }

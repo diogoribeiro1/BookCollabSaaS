@@ -14,9 +14,16 @@ namespace BookCollabSaaS.Presentation.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> CreateOrUpdateAsync([FromBody] CreateUserRequest request)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateUserRequest request)
         {
-            var result = await _userHandler.CreateOrUpdateAsync(request);
+            var result = await _userHandler.CreateAsync(request);
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync([FromBody] UpdateUserRequest request)
+        {
+            var result = await _userHandler.UpdateAsync(request);
             return Ok(result);
         }
 

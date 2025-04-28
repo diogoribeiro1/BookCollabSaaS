@@ -1,47 +1,48 @@
-using System;
 using BookCollabSaaS.Application.DTOs.User;
 using BookCollabSaaS.Application.Interfaces;
-using BookCollabSaaS.Domain.User;
+using BookCollabSaaS.Application.Mappers.User;
+using BookCollabSaaS.Application.Validators;
 using BookCollabSaaS.Infrastructure.Data.Repositories.Interfaces;
 
 namespace BookCollabSaaS.Application.Handlers
 {
-    public class UserHandler(IUserRepository userRepository, ITokenService tokenService, IRoleRepository roleRepository) : IUserHandler
+    public class UserHandler : IUserHandler
     {
-        private readonly IUserRepository _userRepository = userRepository;
-        private readonly IRoleRepository _roleRepository = roleRepository;
-        private readonly ITokenService _tokenService = tokenService;
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
+        private readonly ITokenService _tokenService;
 
-        public async Task<UserResponse> CreateOrUpdateAsync(CreateUserRequest request)
+        public UserHandler(IUserRepository userRepository, ITokenService tokenService, IRoleRepository roleRepository)
         {
-            if (string.IsNullOrWhiteSpace(request.Name)) throw new ArgumentNullException(nameof(request.Name));
-            if (string.IsNullOrWhiteSpace(request.Email)) throw new ArgumentNullException(nameof(request.Email));
+            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+            _roleRepository = roleRepository ?? throw new ArgumentNullException(nameof(roleRepository));
+            _tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
+        }
 
-            var user = new UserEntity(
-                name: request.Name,
-                email: request.Email,
-                password: request.Password
-            );
+        public async Task<UserResponse> CreateAsync(CreateUserRequest request)
+        {
+            CreateUserRequestValidator.ValidateCreateRequest(request);
 
-            var role = await _roleRepository.GetByNameAsync("Admin");
+            var user = UserMapper.ToEntity(request);
+
+            var role = await _roleRepository.GetByNameAsync("Admin")
+                ?? throw new Exception("Role 'Admin' not found.");
 
             user.AddRole(role);
 
             await _userRepository.AddAsync(user);
 
-            return new UserResponse
-            {
-                Id = user.Id,
-                Name = user.Name,
-                Email = user.Email
-            };
+            return UserMapper.ToResponse(user);
         }
 
         public async Task<string> GenerateTokenAsync(LoginRequest request)
         {
-            var user = await _userRepository.GetByEmailAsync(request.Email);
+            LoginRequestValidator.ValidateLoginRequest(request);
 
-            if (user == null || !user.VerifyPassword(request.Password))
+            var user = await _userRepository.GetByEmailAsync(request.Email)
+                ?? throw new UnauthorizedAccessException("Invalid email or password.");
+
+            if (!user.VerifyPassword(request.Password))
             {
                 throw new UnauthorizedAccessException("Invalid email or password.");
             }
@@ -54,32 +55,20 @@ namespace BookCollabSaaS.Application.Handlers
         public async Task<IEnumerable<UserResponse>> GetAllAsync()
         {
             var users = await _userRepository.GetAllAsync();
-
-            return users.Select(user => new UserResponse
-            {
-                Id = user.Id,
-                Name = user.Name,
-                Email = user.Email,
-                Roles = user.Roles.Select(r => r.Name).ToList()
-
-            });
+            return users.Select(UserMapper.ToResponse);
         }
 
         public async Task<UserResponse> GetByIdAsync(Guid id)
         {
-            var user = await _userRepository.GetByIdAsync(id);
+            var user = await _userRepository.GetByIdAsync(id)
+                ?? throw new Exception("User not found.");
 
-            if (user == null)
-            {
-                throw new Exception("User not found");
-            }
+            return UserMapper.ToResponse(user);
+        }
 
-            return new UserResponse
-            {
-                Id = user.Id,
-                Name = user.Name,
-                Email = user.Email
-            };
+        public Task<UserResponse> UpdateAsync(UpdateUserRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

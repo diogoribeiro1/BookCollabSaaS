@@ -770,6 +770,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "BookCollabSaaS.Common": "1.0.0",
           "BookCollabSaaS.Domain": "1.0.0"
         },
         "compile": {
