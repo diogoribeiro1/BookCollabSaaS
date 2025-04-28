@@ -78,6 +78,9 @@ libman.json
 *.db
 *.sqlite
 
+# Ignore build outputs
+/bin/
+/obj/
 *.dll
-
+*.exe
 *.pdb
