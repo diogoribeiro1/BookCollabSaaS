@@ -7,7 +7,7 @@ public class RoleEntity
     public Guid Id { get; private set; }
     public string Name { get; private set; }
 
-    private RoleEntity() { }
+    public RoleEntity() { }
 
     public RoleEntity(string name)
     {

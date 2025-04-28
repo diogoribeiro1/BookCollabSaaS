@@ -11,12 +11,15 @@ namespace BookCollabSaaS.Application.Handlers
         private readonly IUserRepository _userRepository;
         private readonly IRoleRepository _roleRepository;
         private readonly ITokenService _tokenService;
+        private readonly ICacheService _cacheService;
 
-        public UserHandler(IUserRepository userRepository, ITokenService tokenService, IRoleRepository roleRepository)
+        public UserHandler(IUserRepository userRepository, ITokenService tokenService, IRoleRepository roleRepository, ICacheService cacheService)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
             _roleRepository = roleRepository ?? throw new ArgumentNullException(nameof(roleRepository));
             _tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
+            _cacheService = cacheService ?? throw new ArgumentNullException(nameof(cacheService));
+
         }
 
         public async Task<UserResponse> CreateAsync(CreateUserRequest request)
@@ -60,11 +63,24 @@ namespace BookCollabSaaS.Application.Handlers
 
         public async Task<UserResponse> GetByIdAsync(Guid id)
         {
+            var cacheKey = $"user:{id}";
+            var cachedUser = await _cacheService.GetAsync<UserResponse>(cacheKey);
+
+            if (cachedUser != null)
+            {
+                return cachedUser;
+            }
+
             var user = await _userRepository.GetByIdAsync(id)
                 ?? throw new Exception("User not found.");
 
-            return UserMapper.ToResponse(user);
+            var userResponse = UserMapper.ToResponse(user);
+
+            await _cacheService.SetAsync(cacheKey, userResponse, TimeSpan.FromHours(1)); // cache for 1 hour
+
+            return userResponse;
         }
+
 
         public Task<UserResponse> UpdateAsync(UpdateUserRequest request)
         {

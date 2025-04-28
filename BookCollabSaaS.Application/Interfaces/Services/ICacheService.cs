@@ -4,6 +4,7 @@ namespace BookCollabSaaS.Application.Interfaces;
 
 public interface ICacheService
 {
-    Task SetAsync(string key, string value);
-    Task<string?> GetAsync(string key);
+    Task<T> GetAsync<T>(string key);
+    Task SetAsync<T>(string key, T value, TimeSpan? expiry = null);
+    Task RemoveAsync(string key);
 }
