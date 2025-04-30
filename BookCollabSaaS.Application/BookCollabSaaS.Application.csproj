@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Stripe.net" Version="48.0.2" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="../BookCollabSaaS.Common/BookCollabSaaS.Common.csproj" />
     <ProjectReference Include="../BookCollabSaaS.Domain/BookCollabSaaS.Domain.csproj" />
   </ItemGroup>

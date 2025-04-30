@@ -34,7 +34,7 @@ public class UserHandlerTests
     public async Task CreateAsync_ShouldCreateUserAndReturnResponse()
     {
         // Arrange
-        var request = new CreateUserRequest { Email = "test@example.com", Password = "Password123" };
+        var request = new CreateUserRequest { Name = "Teste", Email = "test@example.com", Password = "Password123" };
         var role = new RoleEntity("Admin");
 
         _roleRepositoryMock.Setup(r => r.GetByNameAsync("Admin"))
@@ -57,7 +57,7 @@ public class UserHandlerTests
     {
         // Arrange
         var request = new LoginRequest { Email = "test@example.com", Password = "Password123" };
-        var user = new UserEntity("test@example.com", "hashedPassword");
+        var user = new UserEntity("Test name", "test@example.com", "hashedPassword");
         user.SetPassword(request.Password); // Assuming SetPassword hashes the password internally
         user.AddRole(new RoleEntity("Admin"));
 
@@ -79,7 +79,7 @@ public class UserHandlerTests
     {
         // Arrange
         var userId = Guid.NewGuid();
-        var cachedUser = new UserResponse { Id = userId, Email = "cached@example.com" };
+        var cachedUser = new UserResponse { Id = userId, Name = "Name Test", Email = "cached@example.com" };
 
         _cacheServiceMock.Setup(c => c.GetAsync<UserResponse>($"user:{userId}"))
             .ReturnsAsync(cachedUser);
@@ -98,7 +98,7 @@ public class UserHandlerTests
     {
         // Arrange
         var userId = Guid.NewGuid();
-        var user = new User("db@example.com", "password");
+        var user = new UserEntity("Name", "db@example.com", "password");
         user.Id = userId;
 
         _cacheServiceMock.Setup(c => c.GetAsync<UserResponse>($"user:{userId}"))
@@ -126,8 +126,8 @@ public class UserHandlerTests
         // Arrange
         var users = new List<UserEntity>
             {
-                new UserEntity("user1@example.com", "pass1"),
-                new UserEntity("user2@example.com", "pass2")
+                new UserEntity("Name", "user1@example.com", "pass1"),
+                new UserEntity("Name", "user2@example.com", "pass2")
             };
 
         _userRepositoryMock.Setup(u => u.GetAllAsync())

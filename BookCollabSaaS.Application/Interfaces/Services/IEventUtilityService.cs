@@ -1,10 +1,10 @@
-using S;
+
+using Stripe;
 
 namespace BookCollabSaaS.Application.Interfaces.Services;
 
 public interface IEventUtilityService
 {
-    // TODO: add nuget package Stripe.net
-    Event ConstructEvent(string json, string stripeSignature, string webhookSecret);
+    Event ConstructEvent(string json, string tripeSignature, string webhookSecret);
 
 }

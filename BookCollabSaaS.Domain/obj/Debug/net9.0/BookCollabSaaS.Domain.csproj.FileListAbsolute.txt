@@ -1,0 +1,12 @@
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/bin/Debug/net9.0/BookCollabSaaS.Domain.deps.json
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/bin/Debug/net9.0/BookCollabSaaS.Domain.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/bin/Debug/net9.0/BookCollabSaaS.Domain.pdb
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.AssemblyInfoInputs.cache
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.AssemblyInfo.cs
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.csproj.CoreCompileInputs.cache
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.sourcelink.json
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/refint/BookCollabSaaS.Domain.dll
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/BookCollabSaaS.Domain.pdb
+/Users/diogoribeiro/code/BookCollabSaaS/BookCollabSaaS.Domain/obj/Debug/net9.0/ref/BookCollabSaaS.Domain.dll

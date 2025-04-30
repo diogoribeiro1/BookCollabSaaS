@@ -118,18 +118,21 @@ internal static class EventUtilityMocker
     public static void MockConstructEvent(Event stripeEvent)
     {
         _mockedConstructEvent = (_, __, ___) => stripeEvent;
-
-        EventUtility.ConstructEvent = new Func<string, string, string, Event>(
-            (payload, sigHeader, secret) => _mockedConstructEvent(payload, sigHeader, secret)
-        );
     }
 
     public static void MockConstructEventThrows(Exception ex)
     {
         _mockedConstructEvent = (_, __, ___) => throw ex;
+    }
 
-        EventUtility.ConstructEvent = new Func<string, string, string, Event>(
-            (payload, sigHeader, secret) => _mockedConstructEvent(payload, sigHeader, secret)
-        );
+    public static Event ConstructEvent(string payload, string sigHeader, string secret)
+    {
+        if (_mockedConstructEvent != null)
+        {
+            return _mockedConstructEvent(payload, sigHeader, secret);
+        }
+
+        return EventUtility.ConstructEvent(payload, sigHeader, secret);
     }
 }
+
