@@ -1,5 +1,6 @@
 using System;
 using BookCollabSaaS.Application.DTOs.Payment;
+using BookCollabSaaS.Application.Interfaces.Services;
 using BookCollabSaaS.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,7 @@ namespace BookCollabSaaS.Presentation.Controllers;
 [Route("api/[controller]")]
 public class PaymentController : ControllerBase
 {
-    private readonly StripeService _stripeService;
+    private readonly IStripeService _stripeService;
 
     public PaymentController(StripeService stripeService)
     {

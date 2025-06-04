@@ -1,11 +1,12 @@
 using System;
+using BookCollabSaaS.Application.Interfaces.Services;
 using Microsoft.Extensions.Configuration;
 using Stripe;
 using Stripe.Checkout;
 
 namespace BookCollabSaaS.Infrastructure.Services;
 
-public class StripeService
+public class StripeService : IStripeService
 {
     private readonly IConfiguration _configuration;
     private readonly SessionService _sessionService;
